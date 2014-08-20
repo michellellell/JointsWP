@@ -9,7 +9,7 @@
 		</header> <!-- end article header -->
 						
 		<section class="entry-content" itemprop="articleBody">
-			<?php the_post_thumbnail('full'); ?>
+			<a href="<?php the_permalink() ?>"><?php the_post_thumbnail('full'); ?></a>
 			<?php the_content('<button class="tiny">Read more...</button>'); ?>
 		</section> <!-- end article section -->
 							

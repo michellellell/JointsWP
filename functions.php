@@ -10,45 +10,22 @@ sidebars, comments, ect.
 INCLUDE NEEDED FILES
 *********************/
 
-/*
-library/joints.php
-	- head cleanup (remove rsd, uri links, junk css, ect)
-	- enqueueing scripts & styles
-	- theme support functions
-	- custom menu output & fallbacks
-	- related post function
-	- page-navi function
-	- removing <p> from around images
-	- customizing the post excerpt
-	- custom google+ integration
-	- adding custom fields to user profiles
-*/
-require_once(get_template_directory().'/library/joints.php'); // if you remove this, Joints will break
-/*
-library/custom-post-type.php
-	- an example custom post type
-	- example custom taxonomy (like categories)
-	- example custom taxonomy (like tags)
-*/
+// LOAD JOINTSWP CORE (if you remove this, the theme will break)
+require_once(get_template_directory().'/library/joints.php'); 
+
+// USE THIS TEMPLATE TO CREATE CUSTOM POST TYPES EASILY
 require_once(get_template_directory().'/library/custom-post-type.php'); // you can disable this if you like
-/*
-library/admin.php
-	- removing some default WordPress dashboard widgets
-	- an example custom dashboard widget
-	- adding custom login css
-	- changing text in footer of admin
-*/
-// require_once(get_template_directory().'/library/admin.php'); // this comes turned off by default
-/*
-library/translation/translation.php
-	- adding support for other languages
-*/
-// require_once(get_template_directory().'/library/translation/translation.php'); // this comes turned off by default
+
+// CUSTOMIZE THE WORDPRESS ADMIN (off by default)
+require_once(get_template_directory().'/library/admin.php'); 
+
+// SUPPORT FOR OTHER LANGUAGES (off by default)
+// require_once(get_template_directory().'/library/translation/translation.php'); 
 
 /*********************
 MENUS & NAVIGATION
 *********************/
-// registering wp3+ menus
+// REGISTER MENUS
 register_nav_menus(
 	array(
 		'top-nav' => __( 'The Top Menu' ),   // main nav in header
@@ -57,9 +34,8 @@ register_nav_menus(
 	)
 );
 
-// the top menu
+// THE TOP MENU
 function joints_top_nav() {
-	// display the wp3 menu if available
     wp_nav_menu(array(
     	'container' => false,                           // remove nav container
     	'container_class' => '',           // class of container (should you choose to use it)
@@ -74,9 +50,8 @@ function joints_top_nav() {
 	));
 } /* end joints main nav */
 
-// the main menu
+// THE MAIN MENU
 function joints_main_nav() {
-	// display the wp3 menu if available
     wp_nav_menu(array(
     	'container' => false,                           // remove nav container
     	'container_class' => '',           // class of container (should you choose to use it)
@@ -91,9 +66,8 @@ function joints_main_nav() {
 	));
 } /* end joints main nav */
 
-// the footer menu (should you choose to use one)
+// THE FOOTER MENU
 function joints_footer_links() {
-	// display the wp3 menu if available
     wp_nav_menu(array(
     	'container' => '',                              // remove nav container
     	'container_class' => 'footer-links clearfix',   // class of container (should you choose to use it)
@@ -109,7 +83,7 @@ function joints_footer_links() {
 	));
 } /* end joints footer link */
 
-// this is the fallback for header menu
+// HEADER FALLBACK MENU
 function joints_main_nav_fallback() {
 	wp_page_menu( array(
 		'show_home' => true,
@@ -122,7 +96,7 @@ function joints_main_nav_fallback() {
 	) );
 }
 
-// this is the fallback for footer menu
+// FOOTER FALLBACK MENU
 function joints_footer_links_fallback() {
 	/* you can put a default here if you like */
 }
@@ -131,7 +105,7 @@ function joints_footer_links_fallback() {
 SIDEBARS
 *********************/
 
-// Sidebars & Widgetizes Areas
+// SIDEBARS AND WIDGETIZED AREAS
 function joints_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'sidebar1',
