@@ -4,10 +4,9 @@ Theme URI: http://www.jointswp.com
 Description: 
 Author: Your Name Here
 Author URI: http://www.yoururlhere.com
-Version: 1.5 (Sass)
+Version: 2.0 (Sass)
+Foundation Version: 5.4.6
 Tags: 
-
-Foundation Version: 5.3
 
 ------------------------------------------------------------------
 
@@ -16,7 +15,7 @@ You will find the .scss files in the /library/scss directory.
 Those files compile to the styles.css found in the library/css directory.
 
 Reccomended tools for working with Sass:
-Recommended
+
 CodeKit: (Best)
 http://incident57.com/codekit/
 
@@ -27,7 +26,6 @@ http://compass.handlino.com/
 
 Because this file is not being used for styles,
 feel free to use it to leave notes to yourself.
-
 
 ----------------------------------------------------------------
 
