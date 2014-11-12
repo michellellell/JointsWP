@@ -162,6 +162,22 @@ function joints_register_sidebars() {
 	*/
 } // don't remove this bracket!
 
+
+/************* WP UPLOAD *****************/
+
+// Replace and/or remove accents and other special characters in filenames on upload
+function sanitize_filename_on_upload($filename) {
+	$ext = end(explode('.',$filename));
+	// Replace all weird characters
+	$sanitized = preg_replace('/[^a-zA-Z0-9-_.]/','', substr($filename, 0, -(strlen($ext)+1)));
+	// Replace dots inside filename
+	$sanitized = str_replace('.','-', $sanitized);
+	return strtolower($sanitized.'.'.$ext);
+}
+add_filter('sanitize_file_name', 'sanitize_filename_on_upload', 10);
+
+
+
 /*********************
 COMMENT LAYOUT
 *********************/
